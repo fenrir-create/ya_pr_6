@@ -38,15 +38,14 @@ export class FormValidator {
 
 
   /** Валидация инпута
-   * Если инпут не прошел валидацию (?) показывает ошибку, иначе (:) убирает ошибку
-   * @param input - элемент формы
+   * 
+   * @param input 
    * @private */
   _validateInput(input) {
     !input.validity.valid ? this._showInputError(input, input.validationMessage) : this._hideInputError(input);
   }
 
 
-  /** Переключает состояние кнопки отправки формы */
   switchSubmitButton() {
     if (Array.from(this._inputArray).filter(input => !input.validity.valid).length === 0) {
       this._submitButton.disabled = false;
@@ -58,7 +57,6 @@ export class FormValidator {
   }
 
 
-  /** Валидирует инпуты, прячет ошибки валидации (при открытии формы) */
   validateInputs() {
     this._inputArray.forEach((input) => {
       this._validateInput(input);
@@ -74,20 +72,16 @@ export class FormValidator {
       evt.preventDefault();
     });
 
-    /** Вешаем прослушиватель input каждому инпуту */
     this._inputArray.forEach((input) => {
       input.addEventListener('input', () => {
 
-        /** Валидация инпута, включает/выключает ошибки */
         this._validateInput(input);
 
-        /** Переключалка состояния кнопки отправки формы */
         this.switchSubmitButton();
       });
     });
   }
 
-  /** Функция включения валидации */
   enableValidation() {
     this._setInputEvtListeners(this._formToValidate);
   }

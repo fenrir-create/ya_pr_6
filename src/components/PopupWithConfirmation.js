@@ -2,8 +2,8 @@ import {Popup} from "./Popup.js";
 
 export class PopupWithConfirmation extends Popup {
   /** Всплывашка с подтверждением, должна присутствовать form с селектором .popup__form
-   * @param popupSelector - селектор всплывашки
-   * @param handleSubmitDelete - хендлер по отправке формы */
+   * @param popupSelector 
+   * @param handleSubmitDelete  */
   constructor(popupSelector, {handleSubmitDelete}) {
     super(popupSelector);
     this._handleSubmitDelete = handleSubmitDelete;

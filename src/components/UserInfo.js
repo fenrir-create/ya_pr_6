@@ -2,9 +2,9 @@
 export class UserInfo {
 
   /** Конструктор
-   * @param profileTitle - селектор элемента с именем пользователя на странице
-   * @param avatar -  селектор изображения с аватаром пользователя на странице
-   * @param profileAbout - селектор элемента с подписью пользователя на странице */
+   * @param profileTitle 
+   * @param avatar 
+   * @param profileAbout */
   constructor({profileTitle, profileAbout, profileAvatar}) {
     this._title = document.querySelector(profileTitle);
     this._about = document.querySelector(profileAbout);
@@ -12,7 +12,7 @@ export class UserInfo {
   }
 
   /** Получает информацию о пользователе из разметки
-   * @returns {*|{about: *, title: *, avatar: *}} - объект с именем и подписью */
+   * @returns {*|{about: *, title: *, avatar: *}} */
   getUserInfo() {
     this._info = {
       title: this._title.textContent,

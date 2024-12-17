@@ -4,7 +4,7 @@ import {Popup} from './Popup.js';
 export class PopupWithImage extends Popup{
 
   /** Конструктор всплывашки с изображением
-   * @param popupSelector - селектор всплывашки */
+   * @param popupSelector  */
   constructor(popupSelector){
     super(popupSelector)
     this._image = this._popup.querySelector('.popup__image');
@@ -12,8 +12,8 @@ export class PopupWithImage extends Popup{
   }
 
   /** Открывает всплывашку, вставляет картинку и название картинки
-   * @param title - название
-   * @param src - ссылка на изображение */
+   * @param title 
+   * @param src */
   open({title, src}){
     this._image.src = src;
     this._image.alt = title;

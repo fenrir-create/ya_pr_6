@@ -1,10 +1,10 @@
 export class Card {
   /** Конструктор карточки
-   * @param currentUser - id залогиненного пользователя, полученное перед отрисовкой карточек
-   * @param handleCardClick - ф-я, открывающая всплывашку изображения при клике на картинку
-   * @param handleDeleteCard - ф-я, открывающая всплывашку подтверждения удаления карточки
-   * @param handleLikeCard - ф-я, ставящая/удаляющая лайк
-   * @param cardTemplateSelector - селектор шаблона карточки из разметки
+   * @param currentUser 
+   * @param handleCardClick 
+   * @param handleDeleteCard
+   * @param handleLikeCard 
+   * @param cardTemplateSelector 
    * @param item - элемент из массива {_id: ID карточки, name: название, link: ссылка, likes: лайки, owner{} - данные о владельце карточки ({_id: ID владельца})} */
   constructor({item, currentUser, handleCardClick, handleDeleteCard, handleLikeCard}, cardTemplateSelector) {
     this._cardId = item._id;
@@ -27,9 +27,9 @@ export class Card {
   }
 
   /** Получает кол-во лайков фото, проверяет, поставил ли текущий пользователь лайк и делает активной кнопку лайка
-   * @param likes - объект с лайками
-   * @param mode - режим для хандлера лайка: setLike - добавляет класс, deleteLike - удаляет,
-   *               если не задан, переходит к проверке, поставил ли текущий пользователь лайк (для рендера) */
+   * @param likes 
+   * @param mode 
+   **/
   updateLikes(likes, mode) {
     likes.length !== 0
       ? this._cardLikeCounter.textContent = likes.length
@@ -63,14 +63,12 @@ export class Card {
     this._cardImage.addEventListener('click', () => this._handleCardClick());
   }
 
-  /** Удаляет элемент карточки, обнуляет экземпляр */
   deleteCard() {
     this._cardItem.remove();
     this._cardItem = null;
   }
 
-  /** Создает карточку, заполняет название, ссылку на изображение, устанавливает прослушиватели
-   * если владелец карточки не является текущим пользователем, то кнопка удаления не отображается
+  /** 
    * @returns {Node} - заполненный элемент карточки с установленными прослушивателями */
   createCard() {
     this._cardItem = this._getCardTemplate();

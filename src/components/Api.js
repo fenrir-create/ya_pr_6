@@ -13,27 +13,26 @@ export class Api {
     });
   }
 
-  /** Работа с данными пользователя */
 
   /** Получает инфо о пользователе с сервера
    * @returns {Promise<Response>} - объект с данными пользователя / текст ошибки */
   getUserInfo() {
-    return fetch(`${this._serverURL}/users/me`, { // Выполняет GET-запрос к API для получения информации о текущем пользователе.
-      headers: this._headers // Передает сохраненные заголовки запроса.
+    return fetch(`${this._serverURL}/users/me`, { 
+      headers: this._headers 
     })
-      .then((res) => this._handlePromiseReturn(res)); // Обрабатывает ответ через вспомогательный метод.
+      .then((res) => this._handlePromiseReturn(res)); 
   }
 
   /** Отправляет инфо о пользователе на сервер
    * @param data - отправляемые данные
    * @returns {Promise<Response>} - объект с обновленными даннями / текст ошибки */
   sendUserInfo(data) {
-    return fetch(`${this._serverURL}/users/me`, { // Выполняет PATCH-запрос для обновления данных пользователя.
-      method: 'PATCH', // Указывает метод HTTP для изменения данных.
-      headers: this._headers, // Передает сохраненные заголовки запроса.
-      body: JSON.stringify({ // Преобразует переданные данные в формат JSON для отправки.
-        name: data.name, // Поле имени пользователя.
-        about: data.about // Поле описания пользователя.
+    return fetch(`${this._serverURL}/users/me`, { 
+      method: 'PATCH', 
+      headers: this._headers, 
+      body: JSON.stringify({
+        name: data.name, 
+        about: data.about 
       })
     })
       .then((res) => this._handlePromiseReturn(res)); // Обрабатывает результат через вспомогательный метод.

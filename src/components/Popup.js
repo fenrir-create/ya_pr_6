@@ -10,13 +10,11 @@ export class Popup {
     }
   }
 
-  /** Открывает всплывашку, добавяет прослушиватель нажатия на ESC */
   open() {
     this._popup.classList.add('popup_opened');
     document.addEventListener('keydown', this._handleEsc);
   }
 
-  /** Закрывает всплывашку, удаляет прослушиватель нажатия на ESC */
   close() {
     this._popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', this._handleEsc);
@@ -30,7 +28,6 @@ export class Popup {
     }
   }
 
-  /** Добавляет прослушиватель нажатия на оверлей или кнопку закрытия */
   setEventListeners() {
     this._popup.addEventListener('click', (evt) => {
       if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__close-button')) {

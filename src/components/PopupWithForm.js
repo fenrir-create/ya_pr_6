@@ -1,11 +1,10 @@
 import {Popup} from './Popup.js'
 
-/** Открывает и закрывает всплывашку с формой */
 export class PopupWithForm extends Popup {
 
   /** Конструктор всплывашки с формой
-   * @param popupSelector - селектор всплывашки
-   * @param handleSubmitForm - обработчик отправки формы */
+   * @param popupSelector 
+   * @param handleSubmitForm */
   constructor(popupSelector, {handleSubmitForm}) {
     super(popupSelector);
     this._handleSubmitForm = handleSubmitForm;
