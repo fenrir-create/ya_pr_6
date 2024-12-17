@@ -36,3 +36,4 @@ export const validationSettings = {
   // Класс, который делает текст ошибки видимым для пользователя
   errorClass: 'popup__error_visible'
 };
+//https://fenrir-create.github.io/ya_pr_6
